@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Building') {
+            steps {
+                sh 'echo $GERRIT_CHANGE_ID 20'
+            }
+        }
+        stage('Acceptance Test') {
+            steps {
+                sh 'echo $GERRIT_CHANGE_ID'
+            }
+        }
+        stage('Performance Test') {
+            steps {
+                sh 'echo "ok"'
+            }
+        }
+    }
+}
