@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Uncovered Lines Bot') {
             steps {
-                sh 'python3 -m gerrit_coverage $GIT_URL'
+                sh './env/bin/python3 -m gerrit_coverage $GIT_URL'
             }
         }
     }

@@ -1,1 +1,1 @@
-python3 -m coverage run --source='.' manage.py test --parallel
+./env/bin/python3 -m coverage run --source='.' manage.py test --parallel
