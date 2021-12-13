@@ -1,14 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage('Compile') {
+        stage('Prepare the environment') {
             steps {
-                sh 'echo $GERRIT_CHANGE_ID 20'
+                sh '. ./scripts/prepare_env.sh'
             }
         }
-        stage('Test') {
+        stage('Test with coverage') {
             steps {
-                sh 'echo "ok"'
+                sh './scripts/test_with_coverage.sh'
+            }
+        }
+        stage('Uncovered Lines Bot') {
+            steps {
+                sh 'python3 -m gerrit_coverage $GIT_URL'
             }
         }
     }
