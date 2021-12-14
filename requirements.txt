@@ -1,3 +1,4 @@
 Django==4.0
 coverage
-gerrit_coverage
+report-not-covered-lines
+review-style-gerrit

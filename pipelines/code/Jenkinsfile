@@ -13,8 +13,15 @@ pipeline {
         }
         stage('Uncovered Lines Bot') {
             steps {
-                sh './env/bin/python3 -m gerrit_coverage $GIT_URL'
+                sh './env/bin/python3 -m report_not_covered_lines $GIT_URL'
+            }
+        }
+        stage('Checking Style') {
+            steps {
+                sh './env/bin/python3 -m review_style_gerrit $GIT_URL'
             }
         }
     }
 }
+
+
