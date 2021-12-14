@@ -2,3 +2,4 @@ Django==4.0
 coverage
 report-not-covered-lines
 review-style-gerrit
+pylama[all]
